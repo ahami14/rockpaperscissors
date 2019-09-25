@@ -14,5 +14,6 @@ namespace RockPaperScissors
         //constructor (Spawner)
 
         //member methods (Can do)
+        
     }
 }

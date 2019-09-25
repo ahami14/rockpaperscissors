@@ -14,6 +14,18 @@ namespace RockPaperScissors
         //constructor (Spawner)
 
         //member methods (Can do)
+        public void RunGame()
+        {
+
+        }
+        public void DisplayRules() 
+        {
+            Console.WriteLine("The Player will choose Rock, Paper, Scissors, Lizard, or Spock.");
+            Console.WriteLine("Afterwards, it will be revealed whether the Player beat the opponent, be it computer or second Player.");
+        }
+            
+        
+
 
 
 
