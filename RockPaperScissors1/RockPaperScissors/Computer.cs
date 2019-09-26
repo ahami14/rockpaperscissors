@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissors
 {
-    class Program
+    class Computer : Player
     {
-        static void Main(string[] args)
+        public override void ChooseGesture()
         {
-            
+           //This will be rng, look into it
         }
     }
 }

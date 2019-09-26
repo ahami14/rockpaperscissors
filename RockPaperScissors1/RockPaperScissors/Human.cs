@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissors
 {
-    class Program
+    class Human : Player
     {
-        static void Main(string[] args)
+        public override void ChooseGesture()
         {
-            
+            Console.WriteLine("Choose your gesture");
         }
     }
 }
