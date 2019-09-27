@@ -24,9 +24,14 @@ namespace RockPaperScissors
             int numberPlayers = GetNumberOfPlayers();
             CreatePlayers(numberPlayers);
             DisplayRules();
-            one.ChooseGesture();
-            two.ChooseGesture();
-            CompareAnswers();
+            while (one.score < 2 && two.score < 2)
+            {
+                one.ChooseGesture();
+                two.ChooseGesture();
+                CompareAnswers();
+                DisplayScore();
+            }
+            
             
         }
         public void DisplayRules() 
@@ -54,115 +59,125 @@ namespace RockPaperScissors
                 two = new Human();
             }
         }
-        public void CompareAnswers()//long if else statement that somehow says we cannot compare datatypes 
+        public void CompareAnswers()//long if else statement 
         {
             if (one.gesture == "Rock" && two.gesture == "Scissors")
             {
-                Console.WriteLine("Rock crushes Scissors!");
+                Console.WriteLine("Rock crushes Scissors! Player one wins this round!");
                 one.score++;
             }
             else if (one.gesture == "Scissors" && two.gesture == "Paper")
             {
-                Console.WriteLine("Scissors cuts paper!");
+                Console.WriteLine("Scissors cuts paper! Player one wins this round!");
                 one.score++;
             }
             else if (one.gesture == "Paper" && two.gesture == "Rock")
             {
-                Console.WriteLine("Paper covers Rock!");
+                Console.WriteLine("Paper covers Rock! Player one wins this round!");
                 one.score++;
             }
             else if (one.gesture == "Rock" && two.gesture == "Lizard")
             {
-                Console.WriteLine("Rock crushes Lizard!");
+                Console.WriteLine("Rock crushes Lizard! Player one wins this round!");
                 one.score++;
             }
             else if (one.gesture == "Lizard" && two.gesture == "Spock")
             {
-                Console.WriteLine("Lizard poisons Spock!");
+                Console.WriteLine("Lizard poisons Spock! Player one wins this round!");
                 one.score++;
             }
             else if (one.gesture == "Spock" && two.gesture == "Scissors")
             {
-                Console.WriteLine("Spock smashes Scissors!");
+                Console.WriteLine("Spock smashes Scissors! Player one wins this round!");
                 one.score++;
             }
             else if (one.gesture == "Scissors" && two.gesture == "Lizard")
             {
-                Console.WriteLine("Scissors decapitates Lizard!");
+                Console.WriteLine("Scissors decapitates Lizard! Player one wins this round!");
                 one.score++;
             }
             else if (one.gesture == "Lizard" && two.gesture == "Paper")
             {
-                Console.WriteLine("Lizard eats Paper!");
+                Console.WriteLine("Lizard eats Paper! Player one wins this round!");
                 one.score++;
             }
             else if (one.gesture == "Paper" && two.gesture == "Spock")
             {
-                Console.WriteLine("Paper disproves Spock!");
+                Console.WriteLine("Paper disproves Spock! Player one wins this round!");
                 one.score++;
             }
             else if(one.gesture == "Spock" && two.gesture == "Rock")
             {
-                Console.WriteLine("Spock vaporizes Rock!");//This is the last one for player one
+                Console.WriteLine("Spock vaporizes Rock! Player one wins this round!");//This is the last one for player one
                 one.score++;
             }
             if (two.gesture == "Rock" && one.gesture == "Scissors")
             {
-                Console.WriteLine("Rock crushes Scissors!");
+                Console.WriteLine("Rock crushes Scissors! Opponent wins this round!");
                 two.score++;
             }
             else if (two.gesture == "Scissors" && one.gesture == "Paper")
             {
-                Console.WriteLine("Scissors cuts paper!");
+                Console.WriteLine("Scissors cuts paper! Opponent wins this round!");
                 two.score++;
             }
             else if (two.gesture == "Paper" && one.gesture == "Rock")
             {
-                Console.WriteLine("Paper covers Rock!");
+                Console.WriteLine("Paper covers Rock! Opponent wins this round!");
                 two.score++;
             }
             else if (two.gesture == "Rock" && one.gesture == "Lizard")
             {
-                Console.WriteLine("Rock crushes Lizard!");
+                Console.WriteLine("Rock crushes Lizard! Opponent wins this round!");
                 two.score++;
             }
             else if (two.gesture == "Lizard" && one.gesture == "Spock")
             {
-                Console.WriteLine("Lizard poisons Spock!");
+                Console.WriteLine("Lizard poisons Spock! Opponent wins this round!");
                 two.score++;
             }
             else if (two.gesture == "Spock" && one.gesture == "Scissors")
             {
-                Console.WriteLine("Spock smashes Scissors!");
+                Console.WriteLine("Spock smashes Scissors! Opponent wins this round!");
                 two.score++;
             }
             else if (two.gesture == "Scissors" && one.gesture == "Lizard")
             {
-                Console.WriteLine("Scissors decapitates Lizard!");
+                Console.WriteLine("Scissors decapitates Lizard! Opponent wins this round!");
                 two.score++;
             }
             else if (two.gesture == "Lizard" && one.gesture == "Paper")
             {
-                Console.WriteLine("Lizard eats Paper!");
+                Console.WriteLine("Lizard eats Paper! Opponent wins this round!");
                 two.score++;
             }
             else if (two.gesture == "Paper" && one.gesture == "Spock")
             {
-                Console.WriteLine("Paper disproves Spock!");
+                Console.WriteLine("Paper disproves Spock! Opponent wins this round!");
                 two.score++;
             }
             else if (two.gesture == "Spock" && one.gesture == "Rock")
             {
-                Console.WriteLine("Spock vaporizes Rock!");
+                Console.WriteLine("Spock vaporizes Rock! Opponent wins this round!");
                 two.score++;
             }
             else if(one.gesture == two.gesture)
             {
                 Console.WriteLine("It is a tie!");
             }
+        }
+
+        public void DisplayScore()
+        {
+           Console.WriteLine("Player One's score is: " + one.score);
+            Console.WriteLine("Opponent's score is: " + two.score);
             Console.ReadLine();
         }
 
+        public void DisplayGameWinner()
+        {
+            
+        }
         
             
         
@@ -171,13 +186,13 @@ namespace RockPaperScissors
 
 
 
-        //display rules for game : game does this
-        //choose if player would like to verse another player or computer
-        //Allow player to choose Rock, Paper, Scissors, Lizard, or Spock
-        //Allow computer to randomly generate their answer based on a number 1-4
-        //determine round winner, increment winner score : Game does this
+        //display rules for game : game does this (Done)
+        //choose if player would like to verse another player or computer (Done)
+        //Allow player to choose Rock, Paper, Scissors, Lizard, or Spock (DOne)
+        //Allow computer to randomly generate their answer based on a number 1-4 (Done)
+        //determine round winner, increment winner score : Game does this (Done)
         //best of 3
-        //check if game winner, if yes line beneath this one, if no, loop into next round where players choose gestures : Game does this
+        //check if game winner, if yes line beneath this one, if no, loop into next round where players choose gestures : Game does this(Done)
             //to check this potentially use player score
         //ask if they would like to play again, start game over 
 
