@@ -20,6 +20,7 @@ namespace RockPaperScissors
         public override void ChooseGesture()
         {
             Console.WriteLine("Choose your gesture: Rock, Paper, Scissors, Lizard, or Spock");
+            gesture = Console.ReadLine();
         }
 
     }
