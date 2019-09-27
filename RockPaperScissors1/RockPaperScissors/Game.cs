@@ -9,13 +9,14 @@ namespace RockPaperScissors
     class Game
     {
         //member vairables (Has A)
-        Player one;
-        Player two;
+        Player playerone;
+        Player playertwo;
 
         //constructor (Spawner)
         public Game()
         {
-
+            //playerone = new Player();
+            //playertwo = new Player();
         }
 
         //member methods (Can do)
@@ -24,16 +25,19 @@ namespace RockPaperScissors
             int numberPlayers = GetNumberOfPlayers();
             CreatePlayers(numberPlayers);
             DisplayRules();
-            while (one.score < 2 && two.score < 2)
+            while (playerone.score < 2 && playertwo.score < 2)
             {
-                one.ChooseGesture();
-                two.ChooseGesture();
-                CompareAnswers();
+                playerone.ChooseGesture();
+                playertwo.ChooseGesture();
+                CompareAnswers(playerone, playertwo);
+                CompareAnswers(playertwo, playerone);
                 DisplayScore();
             }
+            DisplayGameWinner();
             
             
         }
+
         public void DisplayRules() 
         {
             Console.WriteLine("The Player will choose Rock, Paper, Scissors, Lizard, or Spock.");
@@ -50,118 +54,68 @@ namespace RockPaperScissors
         {
             if(numberPlayers == 1)
             {
-                one = new Human();
-                two = new Computer();
+                playerone = new Human();
+                playertwo = new Computer();
             }
             else if(numberPlayers == 2)
             {
-                one = new Human();
-                two = new Human();
+                playerone = new Human();
+                playertwo = new Human();
             }
         }
-        public void CompareAnswers()//long if else statement 
+        public void CompareAnswers(Player playerone, Player playertwo)//long if else statement 
         {
-            if (one.gesture == "Rock" && two.gesture == "Scissors")
+            if (playerone.gesture == "Rock" && playertwo.gesture == "Scissors")
             {
                 Console.WriteLine("Rock crushes Scissors! Player one wins this round!");
-                one.score++;
+                playerone.score++;
             }
-            else if (one.gesture == "Scissors" && two.gesture == "Paper")
+            else if (playerone.gesture == "Scissors" && playertwo.gesture == "Paper")
             {
                 Console.WriteLine("Scissors cuts paper! Player one wins this round!");
-                one.score++;
+                playerone.score++;
             }
-            else if (one.gesture == "Paper" && two.gesture == "Rock")
+            else if (playerone.gesture == "Paper" && playertwo.gesture == "Rock")
             {
                 Console.WriteLine("Paper covers Rock! Player one wins this round!");
-                one.score++;
+                playerone.score++;
             }
-            else if (one.gesture == "Rock" && two.gesture == "Lizard")
+            else if (playerone.gesture == "Rock" && playertwo.gesture == "Lizard")
             {
                 Console.WriteLine("Rock crushes Lizard! Player one wins this round!");
-                one.score++;
+                playerone.score++;
             }
-            else if (one.gesture == "Lizard" && two.gesture == "Spock")
+            else if (playerone.gesture == "Lizard" && playertwo.gesture == "Spock")
             {
                 Console.WriteLine("Lizard poisons Spock! Player one wins this round!");
-                one.score++;
+                playerone.score++;
             }
-            else if (one.gesture == "Spock" && two.gesture == "Scissors")
+            else if (playerone.gesture == "Spock" && playertwo.gesture == "Scissors")
             {
                 Console.WriteLine("Spock smashes Scissors! Player one wins this round!");
-                one.score++;
+                playerone.score++;
             }
-            else if (one.gesture == "Scissors" && two.gesture == "Lizard")
+            else if (playerone.gesture == "Scissors" && playertwo.gesture == "Lizard")
             {
                 Console.WriteLine("Scissors decapitates Lizard! Player one wins this round!");
-                one.score++;
+                playerone.score++;
             }
-            else if (one.gesture == "Lizard" && two.gesture == "Paper")
+            else if (playerone.gesture == "Lizard" && playertwo.gesture == "Paper")
             {
                 Console.WriteLine("Lizard eats Paper! Player one wins this round!");
-                one.score++;
+                playerone.score++;
             }
-            else if (one.gesture == "Paper" && two.gesture == "Spock")
+            else if (playerone.gesture == "Paper" && playertwo.gesture == "Spock")
             {
                 Console.WriteLine("Paper disproves Spock! Player one wins this round!");
-                one.score++;
+                playerone.score++;
             }
-            else if(one.gesture == "Spock" && two.gesture == "Rock")
+            else if(playerone.gesture == "Spock" && playertwo.gesture == "Rock")
             {
                 Console.WriteLine("Spock vaporizes Rock! Player one wins this round!");//This is the last one for player one
-                one.score++;
+                playerone.score++;
             }
-            if (two.gesture == "Rock" && one.gesture == "Scissors")
-            {
-                Console.WriteLine("Rock crushes Scissors! Opponent wins this round!");
-                two.score++;
-            }
-            else if (two.gesture == "Scissors" && one.gesture == "Paper")
-            {
-                Console.WriteLine("Scissors cuts paper! Opponent wins this round!");
-                two.score++;
-            }
-            else if (two.gesture == "Paper" && one.gesture == "Rock")
-            {
-                Console.WriteLine("Paper covers Rock! Opponent wins this round!");
-                two.score++;
-            }
-            else if (two.gesture == "Rock" && one.gesture == "Lizard")
-            {
-                Console.WriteLine("Rock crushes Lizard! Opponent wins this round!");
-                two.score++;
-            }
-            else if (two.gesture == "Lizard" && one.gesture == "Spock")
-            {
-                Console.WriteLine("Lizard poisons Spock! Opponent wins this round!");
-                two.score++;
-            }
-            else if (two.gesture == "Spock" && one.gesture == "Scissors")
-            {
-                Console.WriteLine("Spock smashes Scissors! Opponent wins this round!");
-                two.score++;
-            }
-            else if (two.gesture == "Scissors" && one.gesture == "Lizard")
-            {
-                Console.WriteLine("Scissors decapitates Lizard! Opponent wins this round!");
-                two.score++;
-            }
-            else if (two.gesture == "Lizard" && one.gesture == "Paper")
-            {
-                Console.WriteLine("Lizard eats Paper! Opponent wins this round!");
-                two.score++;
-            }
-            else if (two.gesture == "Paper" && one.gesture == "Spock")
-            {
-                Console.WriteLine("Paper disproves Spock! Opponent wins this round!");
-                two.score++;
-            }
-            else if (two.gesture == "Spock" && one.gesture == "Rock")
-            {
-                Console.WriteLine("Spock vaporizes Rock! Opponent wins this round!");
-                two.score++;
-            }
-            else if(one.gesture == two.gesture)
+            else if(playerone.gesture == playertwo.gesture)
             {
                 Console.WriteLine("It is a tie!");
             }
@@ -169,14 +123,26 @@ namespace RockPaperScissors
 
         public void DisplayScore()
         {
-           Console.WriteLine("Player One's score is: " + one.score);
-            Console.WriteLine("Opponent's score is: " + two.score);
+           Console.WriteLine("Player One's score is: " + playerone.score);
+            Console.WriteLine("Opponent's score is: " + playertwo.score);
             Console.ReadLine();
         }
 
         public void DisplayGameWinner()
         {
-            
+            if(playerone.score > playertwo.score)
+            {
+                Console.WriteLine("Congratultions Player One! You won the game!");
+            }
+            else if(playerone.score < playertwo.score)
+            {
+                Console.WriteLine("Congratulations Player Two! You wont the game!");
+            }
+            else
+            {
+                Console.WriteLine("It's a tie!");
+            }
+            Console.ReadLine();
         }
         
             
@@ -194,10 +160,7 @@ namespace RockPaperScissors
         //best of 3
         //check if game winner, if yes line beneath this one, if no, loop into next round where players choose gestures : Game does this(Done)
             //to check this potentially use player score
-        //ask if they would like to play again, start game over 
-
-        //make 2 more classes potentially for human and computer, can use inheritance: This would be a good idea for you
-        //abstract methods for gesture and player name
+        //ask if they would like to play again, start game over (Workin on)
 
 
         //for creating PVP and PVC: create a method for how many players you want, then create another method that contains an if statement
