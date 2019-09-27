@@ -8,9 +8,19 @@ namespace RockPaperScissors
 {
     class Human : Player
     {
+        //member variable (Has A)
+
+        //constructor (Spawner)
+        public Human()
+        {
+
+        }
+
+        //member methods (Can Do)
         public override void ChooseGesture()
         {
-            Console.WriteLine("Choose your gesture");
+            Console.WriteLine("Choose your gesture: Rock, Paper, Scissors, Lizard, or Spock");
         }
+
     }
 }

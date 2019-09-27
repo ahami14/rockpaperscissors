@@ -13,17 +13,39 @@ namespace RockPaperScissors
         Player two;
         
         //constructor (Spawner)
+        
 
         //member methods (Can do)
         public void RunGame()
         {
-
+            int numberPlayers = GetNumberOfPlayers();
+            CreatePlayers(numberPlayers);
+            
         }
         public void DisplayRules() 
         {
             Console.WriteLine("The Player will choose Rock, Paper, Scissors, Lizard, or Spock.");
             Console.WriteLine("Afterwards, it will be revealed whether the Player beat the opponent, be it computer or second Player.");
             Console.WriteLine("The game will be played best of 3.");
+        }
+        public int GetNumberOfPlayers()
+        {
+            Console.WriteLine("How many players are there?");
+            int numberPlayers = int.Parse(Console.ReadLine());
+            return numberPlayers;
+        }
+        public void CreatePlayers(int numberPlayers)
+        {
+            if(numberPlayers == 1)
+            {
+                one = new Human();
+                two = new Computer();
+            }
+            else if(numberPlayers == 2)
+            {
+                one = new Human();
+                two = new Human();
+            }
         }
 
         
