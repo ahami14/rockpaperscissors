@@ -18,9 +18,7 @@ namespace RockPaperScissors
 
         //member methods (Can Do)
         public override void ChooseGesture()
-        {
-            //This will be rng, make a list, randomize the index of the list and whichever index it gets is what will be given
-            //we need an object reference, so somehow get it to reference the list 
+        { 
 
             Random rng = new Random();
 

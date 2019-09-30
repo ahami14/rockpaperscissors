@@ -145,25 +145,6 @@ namespace RockPaperScissors
             Console.ReadLine();
         }
         
-            
-        
-
-
-
-
-
-        //display rules for game : game does this (Done)
-        //choose if player would like to verse another player or computer (Done)
-        //Allow player to choose Rock, Paper, Scissors, Lizard, or Spock (DOne)
-        //Allow computer to randomly generate their answer based on a number 1-4 (Done)
-        //determine round winner, increment winner score : Game does this (Done)
-        //best of 3
-        //check if game winner, if yes line beneath this one, if no, loop into next round where players choose gestures : Game does this(Done)
-            //to check this potentially use player score
-        //ask if they would like to play again, start game over (Workin on)
-
-
-        //for creating PVP and PVC: create a method for how many players you want, then create another method that contains an if statement
-        //then do something like if you choose 1, then create a computer and if you choose 2, make player 2 = human
+           
     }
 }

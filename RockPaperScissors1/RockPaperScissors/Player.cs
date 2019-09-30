@@ -30,6 +30,5 @@ namespace RockPaperScissors
 
         //member methods (Can do)
         public abstract void ChooseGesture();
-        //public abstract void ChooseName();//we can work with this later, focus on choosing human and computer classes rn
     }
 }
